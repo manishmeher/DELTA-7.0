@@ -261,24 +261,163 @@
 
 //Guessing Game
 
-const max = prompt("enter the max number");
+// const max = prompt("enter the max number");
 
-const random = Math.floor(Math.random() * max) + 1;
+// const random = Math.floor(Math.random() * max) + 1;
 
-let guess = prompt("guess the number");
+// let guess = prompt("guess the number");
 
-while(true) {
-    if(guess == "quit") {
-        console.log("user quit");
-        break;
+// while(true) {
+//     if(guess == "quit") {
+//         console.log("user quit");
+//         break;
+//     }
+
+//     if(guess == random) {
+//         console.log("you are right! congrats!! random number was", random);
+//         break;
+//     } else if (guess < random) {
+//         guess = prompt("your guess was too small");
+//     } else {
+//         guess = prompt("your guess was too large");
+//     }
+// }
+
+//Functions
+
+//Practice Qs 1
+// function printPoem() {
+//     console.log("Twinkle Twinkle, little star");
+//     console.log("how I wonder what you are");
+// }
+
+// printPoem();
+
+//Practice Qs 2
+// function dice() {
+//     console.log(Math.floor(Math.random() * 6) + 1);
+// }
+
+// dice();
+
+//  Practice Qs 3
+
+// function calcAvg(a, b, c) {
+//     let avg = (a+b+c)/3;
+//     console.log(avg);
+// }
+
+// calcAvg(2, 4, 6);
+
+//Practice Qs 4
+
+// function multiTable(n) {
+//     for(let i = n; i<=n*10; i+=n) {
+//         console.log(i);
+//     }
+// }
+
+// multiTable(2);
+
+//Practice Qs 5
+
+// function getSum(n) {
+//     let sum = 0;
+//     for(i=1; i<=n; i++) {
+//         sum += i;
+//     }
+//     return sum;
+// }
+
+//Practice Qs 6
+
+// let str = ["hi", "hello", "bye", "!"];
+
+// function concat(str) {
+//     let result = "";
+//     for(let i=0; i<str.length; i++) {
+//         result += str[i];
+//     }
+
+//     return result;
+// }
+
+//Scope
+// let greet = "hello" //global scope
+
+// function outerGreet() {
+//     let greet = "namasta"; //function scope
+//     console.log(greet);
+
+//     function innerGreet() {
+//         console.log(greet); //lexical scope
+//     }
+//     innerGreet();
+// }
+
+// console.log(greet);
+// outerGreet();
+
+//Function Expressions
+
+// const sum = function(a, b) {
+//     return a + b;
+// }
+
+//Higher order functions
+
+// function multipleGreet (func, n) {
+//     for(let i=1; i<=n; i++) {
+//         func();
+//     }
+// }
+
+// let greet = function() {
+//     console.log("hello");
+// }
+
+// multipleGreet(greet, 2);
+
+//Returns a function
+// let odd = function(n) {
+//     console.log(!(n%2 == 0));
+// }
+
+// let even = function(n) {
+//     console.log(n%2 == 0);
+// }
+
+// function oddOrEvenFactory(request) {
+//     if(request == "odd") {
+//         let odd = function(n) {
+//             console.log(!(n%2 == 0));
+//         }
+
+//         return odd;
+//     } else if(request == "even") {
+//         let even = function(n) {
+//             console.log(n%2 == 0);
+//         }
+
+//         return even;
+//     } else {
+//         console.log('wrong request');
+//     }
+// }
+
+// let request = "odd"; //even
+
+//Methods
+
+const calculator = {
+    num: 55,
+    add: function (a, b) {
+        return a+b;
+    },
+     sub: function (a, b) {
+        return a-b;
+    },
+     mul: function (a, b) {
+        return a*b;
     }
-
-    if(guess == random) {
-        console.log("you are right! congrats!! random number was", random);
-        break;
-    } else if (guess < random) {
-        guess = prompt("your guess was too small");
-    } else {
-        guess = prompt("your guess was too large");
-    }
-}
+};
