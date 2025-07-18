@@ -409,15 +409,57 @@
 
 //Methods
 
-const calculator = {
-    num: 55,
-    add: function (a, b) {
-        return a+b;
+// const calculator = {
+//     num: 55,
+//     add: function (a, b) {
+//         return a+b;
+//     },
+//      sub: function (a, b) {
+//         return a-b;
+//     },
+//      mul: function (a, b) {
+//         return a*b;
+//     }
+// };
+
+//this With Arrow function
+
+const student = {
+    name: "manish",
+    marks: 91,
+    prop: this, //global scope
+    getName: function () {
+        console.log(this);
+        return this.name;
     },
-     sub: function (a, b) {
-        return a-b;
+    getMarks: () => {
+        console.log(this); //parent's scope -> window
+        return this.marks;
     },
-     mul: function (a, b) {
-        return a*b;
-    }
-};
+    getInfo1: function() {
+        setTimeout(() => {
+            console.log("manish"); //student
+        }, 2000);
+    },
+    getInfo2: function() {
+        setTimeout(function () {
+            console.log("manish"); //window
+        }, 2000);
+      },
+}
+const a = 5; //glabal scope
+
+//practice
+
+let square = (n) => {
+    return n*n;
+}
+
+ let id1 = setInterval(() => {
+      console.log("Hello World");
+}, 2000);
+
+setTimeout(() => {
+    clearInterval(1);
+    console.log("clear interval run");
+}, 10000);
