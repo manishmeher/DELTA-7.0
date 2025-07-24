@@ -424,42 +424,141 @@
 
 //this With Arrow function
 
-const student = {
-    name: "manish",
-    marks: 91,
-    prop: this, //global scope
-    getName: function () {
-        console.log(this);
-        return this.name;
-    },
-    getMarks: () => {
-        console.log(this); //parent's scope -> window
-        return this.marks;
-    },
-    getInfo1: function() {
-        setTimeout(() => {
-            console.log("manish"); //student
-        }, 2000);
-    },
-    getInfo2: function() {
-        setTimeout(function () {
-            console.log("manish"); //window
-        }, 2000);
-      },
-}
-const a = 5; //glabal scope
+// const student = {
+//     name: "manish",
+//     marks: 91,
+//     prop: this, //global scope
+//     getName: function () {
+//         console.log(this);
+//         return this.name;
+//     },
+//     getMarks: () => {
+//         console.log(this); //parent's scope -> window
+//         return this.marks;
+//     },
+//     getInfo1: function() {
+//         setTimeout(() => {
+//             console.log("manish"); //student
+//         }, 2000);
+//     },
+//     getInfo2: function() {
+//         setTimeout(function () {
+//             console.log("manish"); //window
+//         }, 2000);
+//       },
+// }
+// const a = 5; //glabal scope
 
-//practice
+// //practice
 
-let square = (n) => {
-    return n*n;
-}
+// let square = (n) => {
+//     return n*n;
+// }
 
- let id1 = setInterval(() => {
-      console.log("Hello World");
-}, 2000);
+//  let id1 = setInterval(() => {
+//       console.log("Hello World");
+// }, 2000);
 
-setTimeout(() => {
-    clearInterval(1);
-    console.log("clear interval run");
-}, 10000);
+// setTimeout(() => {
+//     clearInterval(1);
+//     console.log("clear interval run");
+// }, 10000);
+
+//Event
+// let btn = document.querySelector("button");
+// let p = document.querySelector("p");
+// let h1 = document.querySelector("h1");
+// let h3 = document.querySelector("h3");
+
+// function changeColor() {
+//     console.log(this.innerText);
+//     this.style.backgroundColor = "blue";
+// }
+
+// btn.addEventListener("click", changeColor);
+
+// p.addEventListener("click", changeColor);
+
+// h1.addEventListener("click",changeColor);
+
+// h3.addEventListener("click", changeColor);
+
+//Keybord Event
+
+// let inp = document.querySelector("input");
+
+// inp.addEventListener("keydown", function(event) {
+//     console.log(event.code); //ArrowUp, ArrowDown, ArrowLeft, ArrowRight
+//     if(event.code == "ArrowUp") {
+//         console.log("character moves forword");
+//     } else if (event.code == "ArrowDown") {
+//         console.log("character moves backward");
+//     } else if (event.code == "ArrowLeft") {
+//         console.log("character moves left");
+//     } else if (event.code == "ArrowRight") {
+//         console.log("character moves right");
+//     }
+// });
+
+// inp.addEventListener("keyup", function() {
+//     console.log("key was relesed");
+// });
+
+// Form Event
+// let form = document.querySelector("form");
+
+// form.addEventListener("submit", function(event) {
+//     event.preventDefault();
+//     console.log("form submitted");
+// });
+
+
+// Extracting form Data
+// let form = document.querySelector("form");
+
+// form.addEventListener("submit", function(event) {
+//     event.preventDefault();
+//     console.dir(form);
+
+//     let user = this.elements[0]; //writing "this" is equal to form.elements[0]
+//     let pass = this.elements[1];
+
+//     console.log(user.value);
+//     console.log(pass.value);
+
+//     alert(`Hi ${user.value}, your password is set to ${pass.value}`);
+// });
+
+
+//Change Event & input Event
+
+// let form = document.querySelector("form");
+
+// form.addEventListener("submit", function(event) {
+//     event.preventDefault();
+// });
+
+// let user = document.querySelector("#user");
+
+// user.addEventListener("change", function() {
+//     console.log("change event");
+//     console.log("final value =", this.value);
+// });
+
+// user.addEventListener("input", function() {
+//     console.log("input event");
+//     console.log("final value =", this.value);
+// });
+
+
+//Activity My Text Editor
+
+let inp = document.querySelector("#text");
+let p = document.querySelector("p");
+
+inp.addEventListener("input", function() {
+    console.log(inp.value);
+    p.innerText = inp.value;
+});
+
+
