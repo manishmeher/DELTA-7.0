@@ -563,23 +563,50 @@
 
 
 //Event Bubbling
-let div = document.querySelector("div");
-let ul = document.querySelector("ul");
-let lis = document.querySelectorAll("li");
+// let div = document.querySelector("div");
+// let ul = document.querySelector("ul");
+// let lis = document.querySelectorAll("li");
 
-div.addEventListener("click", function() {
-    console.log("div was clicked")
-});
+// div.addEventListener("click", function() {
+//     console.log("div was clicked")
+// });
 
 
-ul.addEventListener("click", function(event) {
-    event.stopPropagation();
-    console.log("ul was clicked")
-});
+// ul.addEventListener("click", function(event) {
+//     event.stopPropagation();
+//     console.log("ul was clicked")
+// });
 
-for(li of lis) {
-    li.addEventListener("click", function(event) {
-        event.stopPropagation();
-        console.log("li was clicked");
-    });
+// for(li of lis) {
+//     li.addEventListener("click", function(event) {
+//         event.stopPropagation();
+//         console.log("li was clicked");
+//     });
+// }
+
+//Call Stack
+
+// function hello() {
+//     console.log("hello");
+// }
+
+// function demo() {
+//     hello();
+// }
+
+// demo();
+
+function one() {
+    return 1;
 }
+
+function two() {
+    return one() + one();
+}
+
+function three() {
+    let ans = two() + one();
+    console.log(ans);
+}
+
+three();
