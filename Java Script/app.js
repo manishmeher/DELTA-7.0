@@ -613,7 +613,8 @@
 
 //API Request
 
-let url = "https://catfact.ninja/fact";
+// let url = "https://catfact.ninja/fact";
+// let url2 = "https://dog.ceo/api/breeds/image/random";
 
 // fetch(url)
 // .then((res) => {
@@ -633,17 +634,87 @@ let url = "https://catfact.ninja/fact";
 //     console.log("ERROR-", err);
 // });
 
-async function getFacts() {
-    try {
-        let res = await fetch(url);
-        let data = await res.json();
-        console.log(data.fact);
+// async function getFacts() {
+//     try {
+//         let res = await fetch(url);
+//         let data = await res.json();
+//         console.log(data.fact);
 
-        let res2 = await fetch(url);
-        let data2 = await res2.json();
-        console.log(data2.fact);
-    } catch(e) {
-        console.log("error -", e);
+//         let res2 = await fetch(url);
+//         let data2 = await res2.json();
+//         console.log(data2.fact);
+//     } catch(e) {
+//         console.log("error -", e);
+//     }
+//     console.log("bye");
+// }
+
+//Axios
+// let btn = document.querySelector("button");
+
+// btn.addEventListener("click", async ()=> {
+    // let fact = await getFacts();
+    // let p = document.querySelector("#result");
+    // p.innerText = fact;
+
+//     let link = await getImage();
+//     let img = document.querySelector("#result");
+//     img.setAttribute("src", link);
+// });
+
+// async function getImage() {
+//     try {
+//         let res = await axios.get(url2);
+//         return res.data.message;
+//     } catch(e) {
+//         console.log("error -", e);
+//         return "No image found"
+//     }
+// }
+
+//Sending Headers
+
+// const url = "https://icanhazdadjoke.com/";
+
+// async function getJokes() {
+//     try {
+//         const config = {headers: {Accept: "application/json"} };
+//         let res = await axios.get(url, config);
+//         console.log(res.data);
+//     } catch (err) {
+//         console.log(err);
+//     }
+// }
+
+//Updating Query Strings
+let url = "http://universities.hipolabs.com/search?name=";
+let btn = document.querySelector("button");
+
+btn.addEventListener("click", async () => {
+    let country = document.querySelector("input").value;
+    console.log(country);
+    let colArr = await getColleges(country);
+    show(colArr);
+});
+
+function show(colArr) {
+    let list = document.querySelector("#list");
+    list.innerText = "";
+    for (col of colArr) {
+        console.log(col.name);
+
+        let li = document.createElement("li");
+        li.innerText = col.name;
+        list.appendChild(li);
     }
-    console.log("bye");
+}
+
+async function getColleges(country) {
+    try {
+        let res = await axios.get(url + country);
+        return res.data;
+    } catch (e) {
+        console.log("error", e );
+        return [];
+    }
 }
